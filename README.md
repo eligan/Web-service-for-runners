@@ -17,5 +17,5 @@ Routes For Running - це веб-сервіс для людей, які любл
 - Снагощенко Данило КМ-33
 
 #Діаграма класів
-![diagram](https://cloud.githubusercontent.com/assets/10174661/6813678/1f553c0c-d280-11e4-9c96-9465c7bb1967.PNG)
+![newdiagram](https://cloud.githubusercontent.com/assets/10174661/6814052/d1967f90-d283-11e4-9b3d-10c5f9e72ec2.PNG)
 
