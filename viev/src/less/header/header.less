@@ -12,4 +12,32 @@
 	    max-height: 300px;
 	}
 }
-	
+
+.menu{
+	.navbar ul li {
+		a {
+		 	color: @btn-text;
+			background-color: @btn-background;
+			&:hover,
+			&:focus{
+				color: @hover-btn-text;
+				background-color: @hover-btn-background;
+			}
+		}
+		&.active > a, 
+		&.active > a:hover, 
+		&.active > a:focus,
+		&.open > a, 
+		&.open > a:hover, 
+		&.open > a:focus{
+			color: @active-btn-text;
+			background-color: @active-btn-background;
+		}
+	}
+	.container-fluid{
+		margin-top: -1px;
+		.navbar-right {
+			margin-right: 0px !important;
+		}
+	}
+}	

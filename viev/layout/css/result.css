@@ -10,3 +10,27 @@
   margin-left: -300px;
   max-height: 300px;
 }
+.menu .navbar ul li a {
+  color: #1e9cd7;
+  background-color: transparent;
+}
+.menu .navbar ul li a:hover,
+.menu .navbar ul li a:focus {
+  color: #ffffff;
+  background-color: #1e9cd7;
+}
+.menu .navbar ul li.active > a,
+.menu .navbar ul li.active > a:hover,
+.menu .navbar ul li.active > a:focus,
+.menu .navbar ul li.open > a,
+.menu .navbar ul li.open > a:hover,
+.menu .navbar ul li.open > a:focus {
+  color: #ffffff;
+  background-color: #005b97;
+}
+.menu .container-fluid {
+  margin-top: -1px;
+}
+.menu .container-fluid .navbar-right {
+  margin-right: 0px !important;
+}

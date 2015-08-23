@@ -1,0 +1,35 @@
+<script type="text/javascript">
+	$(function(){//on ready
+
+		//menu pills
+		var menuPills = function(){
+			var menuItems = $(".menu ul li");
+
+			menuItems.each(function(index, el) {
+				$(el).on('click', function(event){
+					event.preventDefault();
+					$(el).focus();
+
+					menuItems.each(function(index, sibling) {
+						$(sibling).removeClass('active');
+						$(sibling).removeClass('open');
+					});
+
+					if($(el).hasClass('dropdown')){
+						$(el).toggleClass('.open');
+					}
+					else{
+						$(el).addClass('active');
+					}
+				});
+
+				$(el).on("blur", function(event) {
+					$(el).removeClass('active');
+					$(el).removeClass('open');
+				});
+	
+			});
+		};
+		menuPills();
+	});
+</script>
