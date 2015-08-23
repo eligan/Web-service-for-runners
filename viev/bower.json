@@ -1,0 +1,16 @@
+{
+  "name": "routes-for-runners",
+  "version": "0.0.1",
+  "homepage": "https://github.com/eligan/Web-service-for-runners",
+  "authors": [
+    "Roman Liuk <roman.liuk@gns-it.com>"
+  ],
+  "main": "layout/index.html",
+  "license": "MIT",
+  "dependencies": {
+    "material-design-lite": "~1.0.4",
+    "jquery": "~2.1.4",
+    "bootstrap": "~3.3.5",
+    "bootstrap-material-design": "~0.3.0"
+  }
+}
