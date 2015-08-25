@@ -3,14 +3,14 @@
 
 		//menu pills
 		var menuPills = function(){
-			var menuItems = $(".menu ul li");
+			var menuItems = $(".menu ul:first li");
 
 			menuItems.each(function(index, el) {
 				$(el).on('click', function(event){
 					event.preventDefault();
 					$(el).focus();
 
-					menuItems.each(function(index, sibling) {
+					$(el).siblings().each(function(index, sibling) {
 						$(sibling).removeClass('active');
 						$(sibling).removeClass('open');
 					});
@@ -29,7 +29,56 @@
 				});
 	
 			});
+
+			var logIn = $(".menu .navbar-right #logInBtn");
+			var logInForm = logIn.find('#logInForm');
+			var register = $(".menu .navbar-right #regBtn");
+
+			logIn.on('click', function(event) {
+				console.log("click");
+				event.preventDefault();
+				
+				logInForm.on('click', function(event) {
+					event.preventDefault();
+					event.stopPropagation();
+				});
+
+				if(logIn.hasClass('active')) {
+					logIn.removeClass('active');
+					logInForm.hide('fast');
+				} else {
+					logIn.addClass('active');
+					logInForm.show('fast');
+				}
+			});
+
+			$(document).mouseup(function (e) {
+			    if (logIn.has(e.target).length === 0){
+			        logIn.removeClass('active');
+					logInForm.hide('fast');
+			    }
+			});
 		};
 		menuPills();
 	});
+
+	$(document).on('scroll', function(event) {
+		event.preventDefault();
+		if($(window).scrollTop() >= 300) {
+			$('.menu').css({
+				'position': 'fixed',
+				'top': '0',
+				'z-index': '100',
+				'width': '100%'
+			});
+		} else {
+			$('.menu').css({
+				'position': 'relative',
+				'top': '',
+				'z-index': ''
+			});
+		}
+			
+	});
+
 </script>

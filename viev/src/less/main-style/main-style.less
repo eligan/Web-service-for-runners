@@ -9,5 +9,51 @@
 
 @btn-text: #1E9CD7;
 @btn-background: transparent;
+//2-white buttons
 
 
+
+.transition(@duration){
+	-webkit-transition: all @duration 0s linear;
+    -moz-transition: all @duration 0s linear;
+    -o-transition: all @duration 0s linear;
+    transition: all @duration 0s linear;
+}
+
+h1, h2, h3, h4, h5, h6, 
+.h1, .h2, .h3, .h4, .h5, .h6 {
+	font-family: dejavu_sansbook;
+}
+
+h2 {
+	&.hover{
+		.transition(0.2s);
+		a{
+			color: @hover-btn-background;
+		}
+	}
+	&.unhover{
+		color: @hover-btn-background;
+	}
+}
+
+.no-touch{
+	h2.hover{
+		&:hover, a:hover, a:focus{
+			color: @active-btn-background;
+		}
+	}
+}
+
+p{
+	font-family: merriweatherregular;
+	line-height: 1.8;
+}
+
+a,
+a:hover,
+a:visited,
+a:focus,
+a:active{
+	text-decoration: none;
+}
