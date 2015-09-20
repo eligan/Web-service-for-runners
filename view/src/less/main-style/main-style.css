@@ -1,0 +1,42 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-family: dejavu_sansbook;
+}
+h2.hover {
+  -webkit-transition: all 0.2s 0s linear;
+  -moz-transition: all 0.2s 0s linear;
+  -o-transition: all 0.2s 0s linear;
+  transition: all 0.2s 0s linear;
+}
+h2.hover a {
+  color: #1e9cd7;
+}
+h2.unhover {
+  color: #1e9cd7;
+}
+.no-touch h2.hover:hover,
+.no-touch h2.hover a:hover,
+.no-touch h2.hover a:focus {
+  color: #005b97;
+}
+p {
+  font-family: merriweatherregular;
+  line-height: 1.8;
+}
+a,
+a:hover,
+a:visited,
+a:focus,
+a:active {
+  text-decoration: none;
+}

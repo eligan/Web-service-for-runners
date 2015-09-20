@@ -1,3 +1,6 @@
-viev/bower_components/
-viev/illustrator src/
-viev/node_modules/
+view/bower_components/
+
+view/ai + psd src/
+view/node_modules/
+
+.idea

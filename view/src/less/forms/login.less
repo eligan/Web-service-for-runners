@@ -1,0 +1,22 @@
+#logInForm{
+  position: absolute;
+  width: 300px;
+  right: 0px;
+  z-index: 100;
+  color: @form-text-color;
+  padding: 15px 20px;
+  background-color: @form-bg-color;
+  box-shadow: 5px 8px 35px -8px #000, -5px 8px 35px -8px #000;
+  input{
+    color: @form-input-text-color;
+    .btn{
+      color: @btn-text;
+    }
+  }
+  .invalidField {
+    color: tomato;
+    input{
+      box-shadow: 0px 0px 15px 5px tomato;
+    }
+  }
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Routes For Runners</title>
+
+    <link href="../../bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="../css/result.css" rel="stylesheet">
+    <link href="../css/sprites.css" rel="stylesheet">
+</head>
+
+<body>
+<header class="header">
+    <img class="bg-img" src="../../images/grass-header.png" alt="bg-img">
+    <img class="logo-big" src="../../images/logo.png" alt="logo-big">
+</header>
+<div class="menu">
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding: 0;">
+                <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1" style="padding: 0;">
+                    <ul class="nav navbar-nav">
+                        <li tabindex="0"><a href="#">Бігунам</a></li>
+                        <li tabindex="1"><a href="#">Організаторам</a></li>
+                        <li tabindex="2"><a href="#">Про нас</a></li>
+                        <li class="dropdown" tabindex="3"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Додатково <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Спробувати сервіс</a></li>
+                                <li><a href="#">Питання та відповіді</a></li>
+                                <li><a href="#">Контакти</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right no-authorized">
+                        <li tabindex="4" id="regBtn">
+                            <a href="#">Реєстрація</a>
+                        </li>
+                        <li tabindex="5" id="logInBtn">
+                            <a href="#">Вхід</a>
+                            include "login.html"
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right authorized" style="display: none;">
+                        <li tabindex="6" id="officeBtn">
+                            <a href="#">Кабінет</a>
+                        </li>
+                        <li tabindex="7" id="logOutBtn">
+                            <a href="#">Вихід</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+include "registration.html"
