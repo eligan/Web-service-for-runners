@@ -29,9 +29,21 @@ var formValidator = (function(){
 				else
 					throw {msg: "invalid phone value"};
 			break;
+			case "date":
+				if( (new RegExp('[0-9]{4}\-[0-9]{2}\-[0-9]{2}')).test(input.val()) )
+					return true;
+				else
+					throw {msg: "invalid date value"};
+			break;
+			case "checkbox":
+				if( input.is(':checked') )
+					return true;
+				else
+					throw {msg: "checkbox unchecked"};
+				break;
 			default: 
 				if (input.val() == "") {
-					throw {msg: "invalid input value"};
+					throw {msg: "empty input value"};
 				}
 			break;
 		}

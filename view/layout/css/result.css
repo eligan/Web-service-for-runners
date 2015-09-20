@@ -236,6 +236,10 @@
   background-color: #005b97;
   box-shadow: 5px 8px 35px -8px #000000, -5px 8px 35px -8px #000000;
 }
+.regWrapper #regForm .success h3 {
+  margin: 40px 0;
+  line-height: 1.5;
+}
 .regWrapper #regForm h2 {
   text-align: center;
 }

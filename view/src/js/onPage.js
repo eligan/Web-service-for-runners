@@ -89,6 +89,18 @@ $(function(){//on ready
     var registration = function() {
         var startReg = $('.menu #regBtn>a');
         var regForm = $('.regWrapper #regForm form');
+        var success = $('.regWrapper #regForm .success');
+        var loader = $('.photo input[type="file"]', regForm);
+
+        startReg.on('click', function(){
+            $('.regWrapper').show();
+            $('body').css('overflow', "hidden");
+        });
+
+        $('.photo .btn', regForm).on('click', function(event){
+            loader.trigger('click');
+        });
+
 
         (function() {//set max && min date
             var d = new Date();
@@ -99,7 +111,28 @@ $(function(){//on ready
             $("#date input", regForm).attr('min', year - 100 + "-" + month + "-" + day);
         })();
 
+        $("input[type='submit']", regForm).on('click', function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+            $(".invalidField", regForm).each(function (index, element){
+                $(element).removeClass("invalidField");
+            });
+            var validation = formValidator.formValid(regForm);
+            if (validation === true ) {
+                regForm.hide();
+                success.trigger('show');
+            } else {
+                validation.elem.parent().addClass("invalidField");
+            }
+        });
 
+        success.on('show', function(){
+            $(this).show();
+            setTimeout(function(){
+                $('.regWrapper').hide();
+                $('body').css('overflow', "auto");
+            }, 10000);
+        });
     };
     registration();
 });
