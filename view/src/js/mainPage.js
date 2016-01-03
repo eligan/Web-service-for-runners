@@ -60,15 +60,19 @@ $(function(){//on ready
         $("input[type='submit']", logInForm).on('click', function (event) {
             event.preventDefault();
             event.stopPropagation();
+
             $(".invalidField", logInForm).each(function (index, element){
                 $(element).removeClass("invalidField");
             });
+
             var validation = formValidator.formValid(logInForm);
             if (validation === true) {
                 $('.no-authorized').hide();
                 $('.authorized').show('fast');
             } else {
-                validation.elem.parent().addClass("invalidField");
+                validation.forEach(function(item){
+                    item.elem.parent().addClass("invalidField");
+                });
             }
         });
     };
@@ -91,10 +95,27 @@ $(function(){//on ready
         var regForm = $('.regWrapper #regForm form');
         var success = $('.regWrapper #regForm .success');
         var loader = $('.photo input[type="file"]', regForm);
+        var closeBtn = $('.regWrapper #regForm .close');
 
         startReg.on('click', function(){
             $('.regWrapper').show();
             $('body').css('overflow', "hidden");
+        });
+
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                
+                reader.onload = function (e) {
+                    $('.regField #profileImg', regForm).attr('src', e.target.result);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        
+        $(".regField #imgLoader", regForm).change(function(){
+            readURL(this);
         });
 
         $('.photo .btn', regForm).on('click', function(event){
@@ -122,16 +143,29 @@ $(function(){//on ready
                 regForm.hide();
                 success.trigger('show');
             } else {
-                validation.elem.parent().addClass("invalidField");
+                validation.forEach(function(item){
+                    item.elem.parent().addClass("invalidField");
+                });
             }
         });
 
-        success.on('show', function(){
-            $(this).show();
+        var closeRegDialog = function(timeout){
             setTimeout(function(){
+                regForm.show();
+                success.hide();
+                regForm[0].reset();
                 $('.regWrapper').hide();
                 $('body').css('overflow', "auto");
-            }, 10000);
+            }, timeout);
+        };
+
+        success.on('show', function(){
+            $(this).show();
+            closeRegDialog(4000);
+        });
+
+        closeBtn.on('click',function(){
+            closeRegDialog(0);
         });
     };
     registration();

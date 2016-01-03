@@ -16,7 +16,8 @@
 
 .menu{
 	.navbar{
-		margin-bottom: 25px; 
+		margin-bottom: 25px;
+
 		ul li {
 			a {
 				padding-top: 20px;
@@ -32,6 +33,11 @@
 				outline: none;
 				color: @active-btn-text;
 				background-color: @active-btn-background;
+			}
+			&.dropdown ul{
+				padding: 0;
+			    border: 0;
+			    box-shadow: 5px 8px 35px -8px #000, -5px 8px 35px -8px #000;
 			}
 		}
 		.container{

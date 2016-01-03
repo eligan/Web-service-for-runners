@@ -236,6 +236,11 @@
   background-color: #005b97;
   box-shadow: 5px 8px 35px -8px #000000, -5px 8px 35px -8px #000000;
 }
+.regWrapper #regForm .close {
+  position: absolute;
+  right: 30px;
+  top: 30px;
+}
 .regWrapper #regForm .success h3 {
   margin: 40px 0;
   line-height: 1.5;
@@ -258,6 +263,10 @@
 .regWrapper #regForm form .regField.photo .btn {
   float: right;
   width: calc(100% - 15px);
+}
+.regWrapper #regForm form .regField.photo img {
+  max-width: 300px;
+  max-height: 200px;
 }
 .regWrapper #regForm form .regField label:before,
 .regWrapper #regForm form .regField label::before {
@@ -330,6 +339,11 @@
   outline: none;
   color: #ffffff;
   background-color: #005b97;
+}
+.menu .navbar ul li.dropdown ul {
+  padding: 0;
+  border: 0;
+  box-shadow: 5px 8px 35px -8px #000000, -5px 8px 35px -8px #000000;
 }
 .menu .navbar .container {
   margin-top: -1px;

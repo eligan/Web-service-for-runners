@@ -49,47 +49,42 @@ var formValidator = (function(){
 		}
 	}
 
-	function validateSelect(select){
+/*	function validateSelect(select){
 		if ($("option:selected", select).text() != "") 
 			return true;
 		else 
 			throw {msg: "invalid select value"};
 	}
-
+*/
 	//module methods:
 	result.formValid = function(form){
-		var fail;
+		var fail = [];
 		var inputs = $("input[required]", form);
-		var selects = $("select[required]", form);
+		/*var selects = $("select[required]", form);*/
 
-		try{
-			if(inputs){
-				inputs.each(function(index, elem) {
-					try{
-						validateInput($(elem));
-					}
-					catch(err){
-						throw {msg: err.msg, elem: $(elem)};
-					}
-				});
-			}
-
-			if(selects){
-				selects.each(function(index, elem) {
-					try{
-						validateSelect($(elem));
-					}
-					catch(err){
-						throw {msg: err.msg, elem: $(elem)};
-					}
-				});
-			}
-		}
-		catch(err){
-			fail = {res: false, msg: err.msg, elem: err.elem}
+		if(inputs){
+			inputs.each(function(index, elem) {
+				try{
+					validateInput($(elem));
+				}
+				catch(err){
+					fail.push({msg: err.msg, elem: $(elem)});
+				}
+			});
 		}
 
-		return  fail || true;
+		/*if(selects){
+			selects.each(function(index, elem) {
+				try{
+					validateSelect($(elem));
+				}
+				catch(err){
+					throw {msg: err.msg, elem: $(elem)};
+				}
+			});
+		}*/
+		
+		return  fail.length ? fail : true;
 	};
 
 	return result;

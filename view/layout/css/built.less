@@ -311,6 +311,11 @@
     padding: 15px 20px;
     background-color: @form-bg-color;
     box-shadow: 5px 8px 35px -8px #000000, -5px 8px 35px -8px #000000;
+    .close{
+      position: absolute;
+      right: 30px;
+      top: 30px;
+    }
     .success{
       h3{
         margin: 40px 0;
@@ -332,6 +337,10 @@
           .btn{
             float: right;
             width: calc(~"100% - 15px");
+          }
+          img{
+            max-width: 300px;
+            max-height: 200px;
           }
         }
         label:before,
@@ -396,7 +405,8 @@
 
 .menu{
 	.navbar{
-		margin-bottom: 25px; 
+		margin-bottom: 25px;
+
 		ul li {
 			a {
 				padding-top: 20px;
@@ -412,6 +422,11 @@
 				outline: none;
 				color: @active-btn-text;
 				background-color: @active-btn-background;
+			}
+			&.dropdown ul{
+				padding: 0;
+			    border: 0;
+			    box-shadow: 5px 8px 35px -8px #000, -5px 8px 35px -8px #000;
 			}
 		}
 		.container{
