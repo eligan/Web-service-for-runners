@@ -4,52 +4,77 @@ module.exports = function(grunt) {
     grunt.initConfig({
 
         clean: {
-            build: ["layout/css", "layout/html", "layout/js"],
+            build: ["main_part/dest/css", "main_part/dest/html", "main_part/dest/js",
+                    "runner_part/dest/css", "runner_part/dest/html", "runner_part/dest/js",
+                    "organizer_part/dest/css", "organizer_part/dest/html", "organizer_part/dest/js"],
         },
 
         concat: {
-            basic: {
-              src: ['src/js/**/*.js'],
-              dest: 'layout/js/main.js'
+            basic_and_extras: {
+                files: {
+                    'main_part/dest/js/main.js': ['main_part/src/js/**/*.js', 'common_part/js/**/*.js'],
+                    'runner_part/dest/js/main.js': ['runner_part/src/js/**/*.js', 'common_part/js/**/*.js'],
+                    'organizer_part/dest/js/main.js': ['organizer_part/src/js/**/*.js', 'common_part/js/**/*.js'],
+
+                    'main_part/dest/less/concated.less': ['main_part/src/less/**/*.less', 'common_part/less/**/*.less'],
+                    'runner_part/dest/less/concated.less': ['runner_part/src/less/**/*.less', 'common_part/less/**/*.less'],
+                    'organizer_part/dest/less/concated.less': ['organizer_part/src/less/**/*.less', 'common_part/less/**/*.less'],
+                },
             },
-            extras: {
-              src: ['src/less/**/*.less'],
-              dest: 'layout/css/built.less'
-            }
         },
 
         includes: {
-            files: {
-                src: ['src/html/*.html'], // Source files
-                dest: 'layout/html', // Destination directory
+            files: [{
+                src: ['main_part/src/html/*.html'],
+                dest: 'main_part/dest/html', 
                 flatten: true,
                 options: {
                     flatten: true,
-                    includePath: 'src/html-parts'
+                    includePath: 'main_part/src/partials'
                 }
-            }
+            },{
+                src: ['runner_part/src/html/*.html'],
+                dest: 'runner_part/dest/html', 
+                flatten: true,
+                options: {
+                    flatten: true,
+                    includePath: 'runner_part/src/partials'
+                }
+            },{
+                src: ['organizer_part/src/html/*.html'],
+                dest: 'organizer_part/dest/html', 
+                flatten: true,
+                options: {
+                    flatten: true,
+                    includePath: 'organizer_part/src/partials'
+                }
+            }]
         },
 
         less: {
             development: {
                 files: {
-                    'layout/css/result.css' : ['layout/css/built.less', 'layout/css/sprites.less']
+                    'main_part/dest/css/result.css' : ['main_part/dest/less/concated.less', 'main_part/dest/less/sprites.less'],
+                    'runner_part/dest/css/result.css' : ['runner_part/dest/less/concated.less', 'runner_part/dest/less/sprites.less'],
+                    'organizer_part/dest/css/result.css' : ['organizer_part/dest/less/concated.less', 'organizer_part/dest/less/sprites.less'],
                 }
             }
         },
 
-        sprite:{
+        /*sprite:{
             all: {
                 src: 'src/icons-for-sprite/*.png',
                 dest: 'images/sprite.png',
                 destCss: 'layout/css/sprite.css'
             }
-        },
+        },*/
 
         watch: {
             scripts: {
-                files: ['src/*/*.js', 'src/*/*.html', 'src/*/*/*.less'],
-                tasks: ['clean', 'sprite', 'concat', 'less', 'includes'],
+                files: ["main_part/src/less/*.*","main_part/src/js/*.*","main_part/src/html/*.*","main_part/src/partials/*.*", 
+                        "runner_part/src/less/*.*","runner_part/src/js/*.*","runner_part/src/html/*.*","runner_part/src/partials/*.*",
+                        "organizer_part/src/less","organizer_part/src/js/*.*","organizer_part/src/html/*.*","organizer_part/src/partials/*.*",],
+                tasks: ['clean', 'concat', 'less', 'includes'],
                 options: {
                     spawn: false,
                 }
@@ -64,11 +89,11 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-includes');
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-html');
-    grunt.loadNpmTasks('grunt-spritesmith');
-    grunt.loadNpmTasks('grunt-contrib-watch');
+/*    grunt.loadNpmTasks('grunt-spritesmith');
+*/    grunt.loadNpmTasks('grunt-contrib-watch');
 
 
     // 4. Указываем, какие задачи выполняются, когда мы вводим «grunt» в терминале
-    grunt.registerTask('default', ['clean', 'sprite', 'concat', 'less', 'includes', 'watch']);
+    grunt.registerTask('default', ['clean', 'concat', 'less', 'includes', 'watch']);
 
 };

@@ -1,0 +1,589 @@
+#logInForm{
+  position: absolute;
+  width: 300px;
+  right: 0px;
+  z-index: 100;
+  color: @form-text-color;
+  padding: 15px 20px;
+  background-color: @form-bg-color;
+  box-shadow: 5px 8px 35px -8px #000, -5px 8px 35px -8px #000;
+  input{
+    color: @form-input-text-color;
+    .btn{
+      color: @btn-text;
+    }
+  }
+  .invalidField {
+    color: tomato;
+    input{
+      box-shadow: 0px 0px 15px 5px tomato;
+    }
+  }
+}
+.regWrapper{
+  position: absolute;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: rgba(150, 150, 150, 0.3);
+  z-index: 1000;
+  #regForm{
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: @form-text-color;
+    padding: 15px 20px;
+    background-color: @form-bg-color;
+    box-shadow: 5px 8px 35px -8px #000000, -5px 8px 35px -8px #000000;
+    .close{
+      position: absolute;
+      right: 30px;
+      top: 30px;
+    }
+    .success{
+      h3{
+        margin: 40px 0;
+        line-height: 1.5;
+      }
+    }
+    h2{
+      text-align: center;
+    }
+    form{
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+      align-content: center;
+      .regField{
+        margin: 15px 0px;
+        &.photo{
+          text-align: center;
+          .btn{
+            float: right;
+            width: calc(~"100% - 15px");
+          }
+          img{
+            max-width: 300px;
+            max-height: 200px;
+          }
+        }
+        label:before,
+        label::before {
+          content: '';
+          width: 100%;
+          height: 5px;
+          position: relative;
+          display: block;
+        }
+        input{
+          line-height: 2;
+          border-width: 0;
+          color: @form-input-text-color;
+          &[name="agree"]{
+            position: relative;
+            transform: translateX(100%);
+            vertical-align: middle;
+          }
+          &[type="date"]
+          .btn{
+            color: @btn-text;
+          }
+        }
+        div#agree{
+          padding: 10px 0;
+          label{
+            margin: 0;
+            margin-left: 30px;
+            vertical-align: middle;
+          }
+          label:before,
+          label::before{
+            display: none;
+          }
+        }
+      }
+      .invalidField {
+        color: tomato;
+        input{
+          box-shadow: 0px 0px 15px 5px tomato;
+        }
+      }
+    }
+  }
+}
+.header{
+	.bg-img{
+		width: 100%;
+    	height: 300px;
+
+	}
+	.logo-big{
+		display: block;
+	    position: absolute;
+	    top: 0;
+	    left: 50%;
+	    margin-left: -300px;
+	    max-height: 300px;
+	}
+}
+
+.menu{
+	.navbar{
+		margin-bottom: 25px;
+
+		ul li {
+			a {
+				padding-top: 20px;
+				padding-bottom: 20px;
+				font-family: dejavu_sansbook;
+				font-size: 18px;
+			 	color: @btn-text;
+				background-color: @btn-background;
+				.transition(0.2s);
+			}
+			&.active > a,
+			&.open > a{
+				outline: none;
+				color: @active-btn-text;
+				background-color: @active-btn-background;
+			}
+			&.dropdown ul{
+				padding: 0;
+			    border: 0;
+			    box-shadow: 5px 8px 35px -8px #000, -5px 8px 35px -8px #000;
+			}
+		}
+		.container{
+			margin-top: -1px;
+			.navbar-right {
+				margin-right: 0px !important;
+			}
+		}
+	}
+}
+
+.no-touch .menu .navbar ul li {
+	a:hover,
+	a:focus{
+		color: @hover-btn-text;
+		background-color: @hover-btn-background;
+	}
+	 
+	&.active > a:hover, 
+	&.active > a:focus,
+	&.open > a:hover, 
+	&.open > a:focus{
+		outline: none;
+		color: @active-btn-text;
+		background-color: @active-btn-background;
+	}
+
+	#logInForm input.btn{
+		&:hover, &:focus{
+			color: @active-btn-background;
+			background-color: white
+		}
+	}
+}	
+.info-block{
+	.item{
+		overflow: hidden;
+		height: auto;
+		padding-top:25px;
+		padding-bottom: 25px;
+		h2{
+			margin-top: 0px;
+			margin-bottom: 30px;
+			text-align: center;
+		}
+		div.text{
+			font-size: 18px;
+			margin: 20px 0;
+		}
+		img{
+			display: block;
+			margin: 0 auto;
+		}
+		form{
+			margin-top: 20px;
+
+			.form-group{
+				padding-right: 0;
+			}
+			.button-group{
+				padding-left: 0;
+			}
+
+			input[type="email"], button[type="submit"]{
+				width: 100%;
+			    height: auto;
+			    line-height: 2.5;
+			    font-size: 18px;
+			    .transition(0.2s);
+			}
+			input[type="email"]{
+			    border-radius: 50px 0 0 50px;
+			    border-width: 0;
+			    padding: 6px 30px;
+			}
+			button[type="submit"]{
+				margin-left: -1px;
+			    border-width: 0;
+			    border-radius: 0 50px 50px 0;
+				color: @active-btn-text;
+				background-color: @active-btn-background;
+			}
+		}
+	}
+}
+
+.no-touch{
+	.info-block{
+		.item{
+			form{
+				button[type="submit"]{
+					&:hover, &:focus{
+						color: @hover-btn-text;
+						background-color: @hover-btn-background;
+					}
+				}
+			}
+		}
+	}
+}
+//colors:
+//
+//1-buttons:
+@hover-btn-text: #fff;
+@hover-btn-background: #1E9CD7;
+
+@active-btn-text: #fff;
+@active-btn-background: #005B97;
+
+@btn-text: #1E9CD7;
+@btn-background: transparent;
+//forms
+@form-bg-color: #005b97;
+@form-text-color: white;
+@form-input-text-color: #005b97;
+
+
+.transition(@duration){
+	-webkit-transition: all @duration 0s linear;
+    -moz-transition: all @duration 0s linear;
+    -o-transition: all @duration 0s linear;
+    transition: all @duration 0s linear;
+}
+
+h1, h2, h3, h4, h5, h6, 
+.h1, .h2, .h3, .h4, .h5, .h6 {
+	font-family: dejavu_sansbook;
+}
+
+h2 {
+	&.hover{
+		.transition(0.2s);
+		a{
+			color: @hover-btn-background;
+		}
+	}
+	&.unhover{
+		color: @hover-btn-background;
+	}
+}
+
+.no-touch{
+	h2.hover{
+		&:hover, a:hover, a:focus{
+			color: @active-btn-background;
+		}
+	}
+}
+
+p{
+	font-family: merriweatherregular;
+	line-height: 1.8;
+}
+
+a,
+a:hover,
+a:visited,
+a:focus,
+a:active{
+	text-decoration: none;
+}
+@font-face {
+    font-family: 'bitterregular';
+    src: url('../../fonts/bitter/bitter-regular.eot');
+    src: url('../../fonts/bitter/bitter-regular.eot?#iefix') format('embedded-opentype'),
+         url('../../fonts/bitter/bitter-regular.woff') format('woff'),
+         url('../../fonts/bitter/bitter-regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'bitterbold';
+    src: url('../../fonts/bitter/bitter-bold.eot');
+    src: url('../../fonts/bitter/bitter-bold.eot?#iefix') format('embedded-opentype'),
+         url('../../fonts/bitter/bitter-bold.woff') format('woff'),
+         url('../../fonts/bitter/bitter-bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'bitteritalic';
+    src: url('../../fonts/bitter/bitter-italic.eot');
+    src: url('../../fonts/bitter/bitter-italic.eot?#iefix') format('embedded-opentype'),
+         url('../../fonts/bitter/bitter-italic.woff') format('woff'),
+         url('../../fonts/bitter/bitter-italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'bitterbold_italic';
+    src: url('../../fonts/bitter/bitter-bolditalic.eot');
+    src: url('../../fonts/bitter/bitter-bolditalic.eot?#iefix') format('embedded-opentype'),
+         url('../../fonts/bitter/bitter-bolditalic.woff') format('woff'),
+         url('../../fonts/bitter/bitter-bolditalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'dejavu_sansbook';
+    src: url('../../fonts/djvu-sans/dejavusans.eot');
+    src: url('../../fonts/djvu-sans/dejavusans.eot?#iefix') format('embedded-opentype'),
+         url('../../fonts/djvu-sans/dejavusans.woff') format('woff'),
+         url('../../fonts/djvu-sans/dejavusans.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'dejavu_sansbold';
+    src: url('../../fonts/djvu-sans/dejavusans-bold.eot');
+    src: url('../../fonts/djvu-sans/dejavusans-bold.eot?#iefix') format('embedded-opentype'),
+         url('../../fonts/djvu-sans/dejavusans-bold.woff') format('woff'),
+         url('../../fonts/djvu-sans/dejavusans-bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'dejavu_sansbold_oblique';
+    src: url('../../fonts/djvu-sans/dejavusans-boldoblique.eot');
+    src: url('../../fonts/djvu-sans/dejavusans-boldoblique.eot?#iefix') format('embedded-opentype'),
+         url('../../fonts/djvu-sans/dejavusans-boldoblique.woff') format('woff'),
+         url('../../fonts/djvu-sans/dejavusans-boldoblique.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'dejavu_sansoblique';
+    src: url('../../fonts/djvu-sans/dejavusans-oblique.eot');
+    src: url('../../fonts/djvu-sans/dejavusans-oblique.eot?#iefix') format('embedded-opentype'),
+         url('../../fonts/djvu-sans/dejavusans-oblique.woff') format('woff'),
+         url('../../fonts/djvu-sans/dejavusans-oblique.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'dejavu_sanscondensed';
+    src: url('../../fonts/djvu-sans/dejavusanscondensed.eot');
+    src: url('../../fonts/djvu-sans/dejavusanscondensed.eot?#iefix') format('embedded-opentype'),
+         url('../../fonts/djvu-sans/dejavusanscondensed.woff') format('woff'),
+         url('../../fonts/djvu-sans/dejavusanscondensed.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'dejavu_sanscondensed_bold';
+    src: url('../../fonts/djvu-sans/dejavusanscondensed-bold.eot');
+    src: url('../../fonts/djvu-sans/dejavusanscondensed-bold.eot?#iefix') format('embedded-opentype'),
+         url('../../fonts/djvu-sans/dejavusanscondensed-bold.woff') format('woff'),
+         url('../../fonts/djvu-sans/dejavusanscondensed-bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'dejavu_sansCnBdOb';
+    src: url('../../fonts/djvu-sans/dejavusanscondensed-boldoblique.eot');
+    src: url('../../fonts/djvu-sans/dejavusanscondensed-boldoblique.eot?#iefix') format('embedded-opentype'),
+         url('../../fonts/djvu-sans/dejavusanscondensed-boldoblique.woff') format('woff'),
+         url('../../fonts/djvu-sans/dejavusanscondensed-boldoblique.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'dejavu_sanscondensed_oblique';
+    src: url('../../fonts/djvu-sans/dejavusanscondensed-oblique.eot');
+    src: url('../../fonts/djvu-sans/dejavusanscondensed-oblique.eot?#iefix') format('embedded-opentype'),
+         url('../../fonts/djvu-sans/dejavusanscondensed-oblique.woff') format('woff'),
+         url('../../fonts/djvu-sans/dejavusanscondensed-oblique.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'dejavu_serifbook';
+    src: url('../../fonts/djvu-serif/dejavuserif.eot');
+    src: url('../../fonts/djvu-serif/dejavuserif.eot?#iefix') format('embedded-opentype'),
+         url('../../fonts/djvu-serif/dejavuserif.woff') format('woff'),
+         url('../../fonts/djvu-serif/dejavuserif.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'dejavu_serifbold';
+    src: url('../../fonts/djvu-serif/dejavuserif-bold.eot');
+    src: url('../../fonts/djvu-serif/dejavuserif-bold.eot?#iefix') format('embedded-opentype'),
+         url('../../fonts/djvu-serif/dejavuserif-bold.woff') format('woff'),
+         url('../../fonts/djvu-serif/dejavuserif-bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'dejavu_serifbold_italic';
+    src: url('../../fonts/djvu-serif/dejavuserif-bolditalic.eot');
+    src: url('../../fonts/djvu-serif/dejavuserif-bolditalic.eot?#iefix') format('embedded-opentype'),
+         url('../../fonts/djvu-serif/dejavuserif-bolditalic.woff') format('woff'),
+         url('../../fonts/djvu-serif/dejavuserif-bolditalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'dejavu_serifcondensed';
+    src: url('../../fonts/djvu-serif/dejavuserifcondensed.eot');
+    src: url('../../fonts/djvu-serif/dejavuserifcondensed.eot?#iefix') format('embedded-opentype'),
+         url('../../fonts/djvu-serif/dejavuserifcondensed.woff') format('woff'),
+         url('../../fonts/djvu-serif/dejavuserifcondensed.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'dejavu_serifcondensed_bold';
+    src: url('../../fonts/djvu-serif/dejavuserifcondensed-bold.eot');
+    src: url('../../fonts/djvu-serif/dejavuserifcondensed-bold.eot?#iefix') format('embedded-opentype'),
+         url('../../fonts/djvu-serif/dejavuserifcondensed-bold.woff') format('woff'),
+         url('../../fonts/djvu-serif/dejavuserifcondensed-bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'dejavu_serifCnBdIt';
+    src: url('../../fonts/djvu-serif/dejavuserifcondensed-bolditalic.eot');
+    src: url('../../fonts/djvu-serif/dejavuserifcondensed-bolditalic.eot?#iefix') format('embedded-opentype'),
+         url('../../fonts/djvu-serif/dejavuserifcondensed-bolditalic.woff') format('woff'),
+         url('../../fonts/djvu-serif/dejavuserifcondensed-bolditalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'dejavu_serifcondensed_italic';
+    src: url('../../fonts/djvu-serif/dejavuserifcondensed-italic.eot');
+    src: url('../../fonts/djvu-serif/dejavuserifcondensed-italic.eot?#iefix') format('embedded-opentype'),
+         url('../../fonts/djvu-serif/../../fonts/djvu-serif/dejavuserifcondensed-italic.woff') format('woff'),
+         url('../../fonts/djvu-serif/dejavuserifcondensed-italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'dejavu_serifitalic';
+    src: url('../../fonts/djvu-serif/dejavuserif-italic.eot');
+    src: url('../../fonts/djvu-serif/dejavuserif-italic.eot?#iefix') format('embedded-opentype'),
+         url('../../fonts/djvu-serif/dejavuserif-italic.woff') format('woff'),
+         url('../../fonts/djvu-serif/dejavuserif-italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'merriweather_lightregular';
+    src: url('../../fonts/merriweather/merriweather-light.eot');
+    src: url('../../fonts/merriweather/merriweather-light.eot?#iefix') format('embedded-opentype'),
+         url('../../fonts/merriweather/merriweather-light.woff') format('woff'),
+         url('../../fonts/merriweather/merriweather-light.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'merriweatherregular';
+    src: url('../../fonts/merriweather/merriweather-regular.eot');
+    src: url('../../fonts/merriweather/merriweather-regular.eot?#iefix') format('embedded-opentype'),
+         url('../../fonts/merriweather/merriweather-regular.woff') format('woff'),
+         url('../../fonts/merriweather/merriweather-regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'merriweatherbold';
+    src: url('../../fonts/merriweather/merriweather-bold.eot');
+    src: url('../../fonts/merriweather/merriweather-bold.eot?#iefix') format('embedded-opentype'),
+         url('../../fonts/merriweather/merriweather-bold.woff') format('woff'),
+         url('../../fonts/merriweather/merriweather-bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'merriweatherultrabold';
+    src: url('../../fonts/merriweather/merriweather-ultrabold.eot');
+    src: url('../../fonts/merriweather/merriweather-ultrabold.eot?#iefix') format('embedded-opentype'),
+         url('../../fonts/merriweather/../../fonts/merriweather/merriweather-ultrabold.woff') format('woff'),
+         url('../../fonts/merriweather/merriweather-ultrabold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'merriweatherlight_italic';
+    src: url('../../fonts/merriweather/merriweather-lightit.eot');
+    src: url('../../fonts/merriweather/merriweather-lightit.eot?#iefix') format('embedded-opentype'),
+         url('../../fonts/merriweather/merriweather-lightit.woff') format('woff'),
+         url('../../fonts/merriweather/merriweather-lightit.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'merriweatheritalic';
+    src: url('../../fonts/merriweather/merriweather-italic.eot');
+    src: url('../../fonts/merriweather/merriweather-italic.eot?#iefix') format('embedded-opentype'),
+         url('../../fonts/merriweather/merriweather-italic.woff') format('woff'),
+         url('../../fonts/merriweather/merriweather-italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'merriweatherbold_italic';
+    src: url('../../fonts/merriweather/merriweather-boldit.eot');
+    src: url('../../fonts/merriweather/merriweather-boldit.eot?#iefix') format('embedded-opentype'),
+         url('../../fonts/merriweather/merriweather-boldit.woff') format('woff'),
+         url('../../fonts/merriweather/merriweather-boldit.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'merriweatherultrabold_italic';
+    src: url('../../fonts/merriweather/merriweather-ultrabdit.eot');
+    src: url('../../fonts/merriweather/merriweather-ultrabdit.eot?#iefix') format('embedded-opentype'),
+         url('../../fonts/merriweather/merriweather-ultrabdit.woff') format('woff'),
+         url('../../fonts/merriweather/merriweather-ultrabdit.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
